@@ -30,8 +30,7 @@ bin/stop-bg.sh 2> /dev/null;
 rm -rf server;
 
 # Unpack from backup tar file.
-mkdir server;
-tar -xf $version -C server;
+tar -xf $version -C .;
 
 echo Successfully checked-out to version $version.;
 

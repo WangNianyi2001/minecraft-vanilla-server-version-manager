@@ -14,6 +14,6 @@ if [[ ! -d backup ]]; then
 fi;
 
 # Archive /server/ into a single tar file.
-name=backup/$(bin/datetime.sh).tar;
-tar -cf "$name" server;
+name=backup/$(bin/datetime.sh).tar.gz;
+tar -czf "$name" server;
 echo Successfully backed-up into "$name".;

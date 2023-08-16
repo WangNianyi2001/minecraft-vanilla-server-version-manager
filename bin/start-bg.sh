@@ -7,7 +7,8 @@ fi;
 # Make a log directory.
 if [[ ! -d log ]]; then rm log; fi;
 if [[ ! -e log ]]; then mkdir log; fi;
-rm -rf log/*;
+rm -rf log;
+mkdir log;
 
 # Run the game backend in a detached process
 # and redirect its stdout to /log/stdout.log
@@ -15,10 +16,10 @@ rm -rf log/*;
 _pwd=$(pwd);
 cd server;
 ./run.bat > ../log/stdout.log &
+cd "$_pwd";
 _pid=$!;
 touch log/pid;
 echo $_pid > log/pid;
 disown $_pid;
-cd "$_pwd";
 
 echo "Successfully started game backend (PID $_pid).";
